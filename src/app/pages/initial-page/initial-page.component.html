@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+<div class="container">
+   
+   <div class="container-login">
+    <h1>Autenticação</h1>
+
+<form (ngSubmit)="submit()" [formGroup]="UserForm" #formDir="ngForm">
+
+    <span>Email</span>
+    <input type="text" formControlName="email" required/>
+    <div *ngIf="email.invalid && formDir.submitted" class="error">
+    <div *ngIf="email.errors?.['required']" >{{msg.required}}</div>
+    <div *ngIf="email.errors?.['email']" >{{msg.email}}</div>
+   </div>
+    
+
+    <span>Senha</span>
+    <input type="password" formControlName="password" required/>
+    <div *ngIf="password.errors && formDir.submitted" class="error">{{msg.password}}</div>
+
+    <button>Entrar</button>
+   </form>
+
+   </div>
+   
+</div>

@@ -1,0 +1,49 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 8vh;
+    background-color: var(--secondary);
+
+    .logo{
+        display: flex;
+        gap: 6px;
+    }
+
+    svg{
+       margin-left: 40px;
+       margin-top: 4px;
+       text-align: center;
+       
+       
+    }
+
+    h2{
+        display: flex;
+        font-size: 28px;
+        color: white;
+    }
+    
+    .color{
+      color: var(--brand); 
+     
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    span{
+        margin-right: 10vh;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        color: var(--brand);
+    }
+
+    
+}    
