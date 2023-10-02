@@ -57,10 +57,14 @@
 
             .error{
                 color: red;
-                font-size: 15px;
+                font-size: 12px;
                 font-family: 'Poppins';
                 margin-bottom: 4px;
             }
+            
+            .error-input {
+                border: 1px solid red;
+              }
 
             button{
                 background-color: var(--brand);
@@ -78,7 +82,7 @@
                 font-weight: 700;
                 line-height: normal;
                 border-radius: 4px;
-                margin: 0 auto;
+                margin-left: 6px;
             }
         
         

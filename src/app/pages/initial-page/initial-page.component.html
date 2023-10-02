@@ -8,7 +8,7 @@
 <form (ngSubmit)="submit()" [formGroup]="UserForm" #formDir="ngForm">
 
     <span>Email</span>
-    <input type="text" formControlName="email" required/>
+    <input type="text" formControlName="email" required [ngClass]="{ 'error-input': email.errors && formDir.submitted }"/>
     <div *ngIf="email.invalid && formDir.submitted" class="error">
     <div *ngIf="email.errors?.['required']" >{{msg.required}}</div>
     <div *ngIf="email.errors?.['email']" >{{msg.email}}</div>
@@ -16,7 +16,7 @@
     
 
     <span>Senha</span>
-    <input type="password" formControlName="password" required/>
+    <input type="password" formControlName="password" required [ngClass]="{ 'error-input': email.errors && formDir.submitted }"/>
     <div *ngIf="password.errors && formDir.submitted" class="error">{{msg.password}}</div>
 
     <button>Entrar</button>
