@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentPageComponent } from './content-page.component';
+import { ContentPageRoutingModule } from './content-page-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { ContentPageComponent } from './content-page.component';
     ContentPageComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ContentPageRoutingModule
   ]
 })
 export class ContentPageModule { }
