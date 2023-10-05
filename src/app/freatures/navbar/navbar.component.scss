@@ -58,7 +58,7 @@
 .sidenav-nav{
     
     list-style: none;
-    padding: 0.938rem;
+   
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -117,53 +117,53 @@
     }
 
     >.container-user{
-        position: relative;
-      background-color: var( --secondary);
-      display: flex;
-      margin-top:auto;
-      justify-content: space-between;
-      width: 100%;
-      height: 50px;
-      align-items: center;
-      padding: 10px 0 10px 0;
-      
-      
-      
-      
-      
-      
-
-      .user{
-        width: 30px;
-        height: 30px;
+     margin-top: auto;
+     
+    }
+    .containerUser-collapsed{
+        background-color: var( --secondary);
+        display: flex;
+        margin-top:auto;
+        justify-content: space-between;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        padding: 10px 0 10px 0;
         
-      }
-      .exit{
-        width: 25px;
-        height: 25px;
-       
-      }
-      .name{
-        font-family: 'Poppins';
-        h3{
-            color: var(--background, #E9ECEF);
-            font-family: Poppins;
-            font-size: 15px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            text-transform: capitalize;
+  
+        .user{
+          width: 30px;
+          height: 30px;
+          margin-left: 6px;
+          
         }
-        span{
-            color: rgba(233, 236, 239, 0.80);
-            font-family: Poppins;
-            font-size: 12px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            text-transform: capitalize;
+        .exit{
+          width: 25px;
+          height: 25px;
+          margin-right: 6px;
+         
         }
-      }
+        .name{
+          font-family: 'Poppins';
+          h3{
+              color: var(--background, #E9ECEF);
+              font-family: Poppins;
+              font-size: 15px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-transform: capitalize;
+          }
+          span{
+              color: rgba(233, 236, 239, 0.80);
+              font-family: Poppins;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: normal;
+              text-transform: capitalize;
+          }
+        }
     }
 }
 
