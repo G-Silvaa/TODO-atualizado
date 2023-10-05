@@ -7,6 +7,10 @@ import { navbarData } from './navData';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
- collapsed = false;
+ collapsed = true;
  navData = navbarData;
+
+ closeSidenav(): void {
+  this.collapsed = !this.collapsed;
+ }
 }
