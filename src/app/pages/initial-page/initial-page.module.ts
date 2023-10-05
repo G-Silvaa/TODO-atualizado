@@ -4,6 +4,7 @@ import { InitialPageRoutingModule } from './initial-page-routing.module';
 import { InitialPageComponent } from './initial-page.component';
 import { HeaderModule } from 'src/app/freatures/header/header.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -17,6 +18,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    AuthService
   ]
 })
 export class InitialPageModule { }
