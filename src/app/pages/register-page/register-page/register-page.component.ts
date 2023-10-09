@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { msg } from 'src/app/shared/utils/msg';
 import { HeaderComponent } from 'src/app/freatures/header/header.component';
 import { Router } from '@angular/router';
+import { RegisterService } from './services/register.service';
+import Swal from 'sweetalert2';
+
 
 
 @Component({
@@ -14,7 +17,7 @@ export class RegisterPageComponent implements OnInit {
 
   @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
  
-  constructor(private router: Router) {}
+  constructor(private router: Router, private registerService: RegisterService) {}
 
   UserForm!: FormGroup  
   msg = msg;
@@ -29,13 +32,6 @@ export class RegisterPageComponent implements OnInit {
     })
     
   }
-
-  
-
-  ngAfterViewInit() {
-    this.headerComponent.atualizarTextoDaConta('Ja possui uma conta?');
-  }
-  
 
   get name() {
     return this.UserForm.get('name')!;
@@ -60,7 +56,24 @@ export class RegisterPageComponent implements OnInit {
       return
     }
     if(this.UserForm.value.confirmPassword === this.UserForm.value.password){
-      console.log('enviou')
+      
+      const email = this.email.value
+      const name = this.name.value
+      const password = String(this.password.value)
+      const confirmPassword = String(this.confirmPassword.value)
+
+      this.registerService.register(email,name,password, confirmPassword).subscribe(
+        (data) => {
+          this.router.navigate(['/initialpage']);
+          console.log(data)
+        },
+
+        (error) => {
+          Swal.fire('Email existente')
+        }
+
+      )
+
     }else{
       return
     }

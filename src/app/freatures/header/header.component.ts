@@ -7,16 +7,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  contaTexto = '';
-  paginaLink: string = "/register";
+  contaTexto: string = ''; // Inicializado vazio
 
-  constructor(private router: Router) {}
-
-  atualizarTextoDaConta(palavra: string) {
-    this.contaTexto = palavra;
+  constructor(private router: Router) {
+    this.atualizarTextoDaConta();
   }
 
-  navegarParaPagina(pagina: string) {
-    this.router.navigate([pagina]);
+  atualizarTextoDaConta() {
+    if (this.router.url === '/initialpage') {
+      this.contaTexto = 'Não possui uma conta?';
+    } else {
+      this.contaTexto = 'Já possui uma conta?';
+    }
+  }
+
+  trocarPagina() {
+    if (this.router.url === '/initialpage') {
+      this.router.navigate(['/register']);
+    } else {
+      this.router.navigate(['/initialpage']);
+    }
   }
 }

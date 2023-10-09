@@ -1,10 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AutorizadoGuard } from './_guard/autorizado.guard';
 
 
 const routes: Routes = [
   {
-    path: '',
+  path:'',
+  redirectTo: 'initialpage',
+  pathMatch: 'full'
+
+  },
+  
+  {
+    path: 'initialpage',
     loadChildren: () => import('./pages/initial-page/initial-page.module').then(m => m.InitialPageModule)
   },
   {
@@ -12,10 +20,11 @@ const routes: Routes = [
     loadChildren: () => import('./pages/register-page/register-page/register-page.module').then(m => m.RegisterPageModule)
   },
   {
-    path: 'content',
-    loadChildren: () => import('./pages/content-page/content-page.module').then(m => m.ContentPageModule)
-  },
-  
+    path: 'content', 
+    loadChildren: () => import('./pages/content-page/content-page.module').then(m => m.ContentPageModule),
+    
+  }
+
 ]
 
 @NgModule({

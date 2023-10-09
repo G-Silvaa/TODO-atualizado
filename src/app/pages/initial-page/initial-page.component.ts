@@ -3,9 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { msg } from 'src/app/shared/utils/msg';
 import { HeaderComponent } from 'src/app/freatures/header/header.component';
 import { AuthService } from './services/auth.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
+
 
 @Component({
   selector: 'app-initial-page',
@@ -13,11 +13,12 @@ import Swal from 'sweetalert2'
   styleUrls: ['./initial-page.component.scss'],
 })
 export class InitialPageComponent implements OnInit {
-  @ViewChild(HeaderComponent) headerComponent!: HeaderComponent;
+  isAuthenticated = false;
+  
 
   
 
-  constructor(private authService: AuthService, private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   UserForm!: FormGroup;
   msg = msg;
@@ -27,11 +28,12 @@ export class InitialPageComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
+
+    
+
   }
 
-  ngAfterViewInit() {
-    this.headerComponent.atualizarTextoDaConta('Não Possui uma conta?');
-  }
+  
 
   get email() {
     return this.UserForm.get('email')!;
@@ -47,12 +49,22 @@ export class InitialPageComponent implements OnInit {
     }
     const email = this.email.value;
     const password = this.password.value;
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJJZCI6Ijg3ODk3MmE1LTliMWItNDAxZi1hMDZmLTJlNjY4NWNlYjI5YyIsIm5hbWUiOiJnZW5pbHRvbiIsImVtYWlsIjoiZ25ld3RvbkBnbWFpbC5jb20iLCJqdGkiOiJlYTM0OWY5Ni1mODRiLTQyMTEtYjhkMy1jOTA2ZDA2MTdmZDMiLCJuYmYiOjE2OTY1MzkxMDQsImlhdCI6MTY5NjUzOTEwNCwiZXhwIjoxNjk2NTQyNzA0LCJpc3MiOiJodHRwczovL2FwaS50b2RvLm1hcmFjYW5hdS5pZmNlLmVkdS5iciIsImF1ZCI6Imh0dHBzOi8vYXBpLnRvZG8ubWFyYWNhbmF1LmlmY2UuZWR1LmJyIn0.oaaqw9T8_3hS_0X87jvwKDQnlMWN-Dbfr3_eJaLDGP8'
+    
 
-    this.authService.login(email, password, token).subscribe(
+    this.authService.getToken(email, password).subscribe(
       (data) => {
-        this.router.navigate(['/content']);
+        if (data.accessToken) { // Corrigido para 'accessToken'
+          const token = data.accessToken;
+    
+          this.authService.login(email, password, token).subscribe(
+            (data) => {
+              this.router.navigate(['/content']);
+              console.log(data);
+            }
+          )
+        }
       },
+      
       (error) => {
         Swal.fire({
           icon: 'error',
@@ -63,3 +75,4 @@ export class InitialPageComponent implements OnInit {
     );
   }
 }
+
