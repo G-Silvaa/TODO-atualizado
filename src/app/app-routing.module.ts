@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AutorizadoGuard } from './_guard/autorizado.guard';
+import { AuthGuard } from './_guard/autorizado.guard';
 
 
 const routes: Routes = [
@@ -22,6 +22,7 @@ const routes: Routes = [
   {
     path: 'content', 
     loadChildren: () => import('./pages/content-page/content-page.module').then(m => m.ContentPageModule),
+    canActivate: [AuthGuard]
     
   }
 

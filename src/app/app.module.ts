@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthService } from './pages/initial-page/services/auth.service';
-import { AutorizadoGuard } from './_guard/autorizado.guard';
+import { AuthGuard } from './_guard/autorizado.guard';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { AutorizadoGuard } from './_guard/autorizado.guard';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [AuthService, AutorizadoGuard],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

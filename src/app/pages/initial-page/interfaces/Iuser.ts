@@ -1,5 +1,5 @@
 export interface User{
-    acessToken?: string;
+    acessToken: string;
     expiredIN?: number;
     id?: number;
     name: string;

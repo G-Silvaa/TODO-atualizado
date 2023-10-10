@@ -10,7 +10,8 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AuthService implements OnInit{
  
   
-  private isAuthenticated = false;
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
    
 
   constructor(private http: HttpClient) {}
@@ -18,6 +19,7 @@ export class AuthService implements OnInit{
   ngOnInit(): void {
     
   }
+
 
   getToken(email: string, password: string) {
     const data = {
@@ -27,37 +29,37 @@ export class AuthService implements OnInit{
 
     return this.http.post<any>(`${environment.apiUrl}/Auth/login`, data).pipe(
       tap((response) => {
-       
-        if (response.accessToken) {
-        
+        if (response && response.accessToken) {
+          
+          this.isAuthenticatedSubject.next(true);
         }
       })
     );
   }
 
-  login(email: string, password: string, token: string) {
+  login(email: string, password: string, token: string): Observable<any> {
     
       const data = {
         email: email,
         password: password
       };
+
+      localStorage.setItem('isAuthenticated', 'true');
     
-   
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}` 
-      
-    });
-    
-    return this.http.post<User[]>(`${environment.apiUrl}/Auth/login`, data, { headers })
+  
+    return this.http.post<any>(`${environment.apiUrl}/Auth/login`, data).pipe(
+      tap((response) => {
+        if(response && response.accessToken){
+          this.isAuthenticatedSubject.next(true)
+        }
+      })
+    )
     
   }
 
-
- 
-  //  isUserLoggedIn(): boolean {
-  //   console.log('isAuthenticated:', this.teste);
-  //   return this.teste;
-  // }
-
+  logout() {
+    localStorage.removeItem('isAuthenticated');
+    this.isAuthenticatedSubject.next(false); 
+  }
  
 }

@@ -53,7 +53,7 @@ export class InitialPageComponent implements OnInit {
 
     this.authService.getToken(email, password).subscribe(
       (data) => {
-        if (data.accessToken) { // Corrigido para 'accessToken'
+        if (data.accessToken) { 
           const token = data.accessToken;
     
           this.authService.login(email, password, token).subscribe(
