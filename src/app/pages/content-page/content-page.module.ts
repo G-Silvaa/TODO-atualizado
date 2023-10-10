@@ -6,9 +6,11 @@ import { ContentPageRoutingModule } from './content-page-routing.module';
 
 
 
+
 @NgModule({
   declarations: [
     ContentPageComponent
+    
   ],
   imports: [
     CommonModule,

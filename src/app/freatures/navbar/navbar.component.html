@@ -45,8 +45,8 @@
                   </clipPath>
                 </defs>
               </svg>
-              <div *ngIf="collapsed" class="name"><h3>José Genilton</h3> <span>usuario</span></div>
-              <svg class="exit" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+              <div *ngIf="collapsed" class="name"><h3>{{ nomeDoUsuario }}</h3> <span>usuario</span></div>
+              <svg class="exit" (click)="logout()" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
                 <path d="M15.625 14.0417L7.10938 14.0417L9.76562 16.6979L8.33333 18.2083L3.125 13L8.33333 7.79167L9.76563 9.30208L7.10938 11.9583L15.625 11.9583V14.0417ZM12.5 22.375V20.2917H19.7917L19.7917 5.70833H12.5V3.625H19.7917C20.3646 3.625 20.8552 3.82882 21.2635 4.23646C21.6712 4.64479 21.875 5.13542 21.875 5.70833L21.875 20.2917C21.875 20.8646 21.6712 21.3552 21.2635 21.7635C20.8552 22.1712 20.3646 22.375 19.7917 22.375H12.5Z" fill="#E9ECEF"/>
                 </svg>
         </footer>

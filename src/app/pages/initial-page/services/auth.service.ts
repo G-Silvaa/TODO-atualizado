@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/app/environments/environment';
 import { User } from '../interfaces/Iuser';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +10,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 export class AuthService implements OnInit{
  
   
-  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
-  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+ 
    
 
   constructor(private http: HttpClient) {}
@@ -27,14 +26,7 @@ export class AuthService implements OnInit{
       password: password
     };
 
-    return this.http.post<any>(`${environment.apiUrl}/Auth/login`, data).pipe(
-      tap((response) => {
-        if (response && response.accessToken) {
-          
-          this.isAuthenticatedSubject.next(true);
-        }
-      })
-    );
+    return this.http.post<any>(`${environment.apiUrl}/Auth/login`, data)
   }
 
   login(email: string, password: string, token: string): Observable<any> {
@@ -48,10 +40,8 @@ export class AuthService implements OnInit{
     
   
     return this.http.post<any>(`${environment.apiUrl}/Auth/login`, data).pipe(
-      tap((response) => {
-        if(response && response.accessToken){
-          this.isAuthenticatedSubject.next(true)
-        }
+      map((response) => {
+        localStorage.setItem('name',response.user.name)
       })
     )
     
@@ -59,7 +49,7 @@ export class AuthService implements OnInit{
 
   logout() {
     localStorage.removeItem('isAuthenticated');
-    this.isAuthenticatedSubject.next(false); 
+     
   }
  
 }

@@ -23,7 +23,7 @@ export class InitialPageComponent implements OnInit {
   UserForm!: FormGroup;
   msg = msg;
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
     this.UserForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
@@ -58,6 +58,7 @@ export class InitialPageComponent implements OnInit {
     
           this.authService.login(email, password, token).subscribe(
             (data) => {
+              
               this.router.navigate(['/content']);
               console.log(data);
             }

@@ -1,24 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { navbarData } from './navData';
-import { AuthGuard } from 'src/app/_guard/autorizado.guard';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'teste-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit{
  collapsed = true;
  navData = navbarData;
-  isAuthenticatedSubject: any;
+ nomeDoUsuario!: string;
+
+ constructor(private router:Router) {}
+  ngOnInit(): void {
+    let nomeArmazenado = localStorage.getItem('name');
+
+    if(nomeArmazenado) {
+      this.nomeDoUsuario = nomeArmazenado;
+    }
+  }
 
  closeSidenav(): void {
   this.collapsed = !this.collapsed;
  }
 
  logout() {
-  // Remova o indicador de autenticação do localStorage
   localStorage.removeItem('isAuthenticated');
-  this.isAuthenticatedSubject.next(false); 
-}
+  this.router.navigate(['/initialpage'])
+ }
+
+
 }
