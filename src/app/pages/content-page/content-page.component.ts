@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./content-page.component.scss']
 })
 export class ContentPageComponent {
-
+ 
 }

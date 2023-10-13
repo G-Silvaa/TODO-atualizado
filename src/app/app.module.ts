@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { AuthService } from './pages/initial-page/services/auth.service';
 import { AuthGuard } from './_guard/autorizado.guard';
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
