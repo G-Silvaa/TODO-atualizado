@@ -4,6 +4,8 @@ import { NavbarModule } from 'src/app/freatures/navbar/navbar.module';
 import { HeaderContentModule } from 'src/app/freatures/header-content/header-content.module';
 import { ContentPageComponent } from './content-page.component';
 import { ContentPageRoutingModule } from './content-page-routing.module';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -20,7 +22,8 @@ import { ContentPageRoutingModule } from './content-page-routing.module';
         CommonModule,
          NavbarModule,
          HeaderContentModule,
-         ContentPageRoutingModule
+         ContentPageRoutingModule,
+         FormsModule
     ]
 })
 export class ContentPageModule { }

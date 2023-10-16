@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-content-page',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class ContentPageComponent {
  
+  constructor() {}
+
 }

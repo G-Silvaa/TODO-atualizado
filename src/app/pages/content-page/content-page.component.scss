@@ -8,17 +8,128 @@ height: 100vh;
 display: flex;
 background-color:  #e9ecef;
 
-.header-c{
-    width: 100%;
-    height: 8%;
-    display: flex;
-    align-items: center;
-    border: 1px solid red;
-    margin: 18px;
 }
 
+.card-conteudo{
+    border: 1px solid red;
+    width: 100%;
+    height: 99.7%;
 
+    .cards{
+        width: 99.6%;
+        height: 87%;
+        border: 2px solid green;
+    }
 
+    .filter{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95.6%;
+        height: 40px;
+        padding: 10px 9px;
+        border-radius: 10px;
+        background: #FFF;
+        margin: 10px 20px 20px 20px;
+
+        h1{
+            color: var(--textPrimary, #333);
+            font-size: 19px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+
+    .cards-children{
+        display: flex;
+        width: 230px;
+        height: 112px;
+        padding: 0px 9px 4px 9px;
+        flex-direction: column; 
+        justify-content: center;
+        align-items: flex-start;
+        gap: 7px;
+        border-radius: 10px;
+        background: #FFF;
+        -webkit-box-shadow: 4px 6px 9px 2px rgba(148,146,148,1);
+        -moz-box-shadow: 4px 6px 9px 2px rgba(148,146,148,1);
+        box-shadow: 4px 6px 9px 2px rgba(148,146,148,1);
+        
+
+        h2{
+            display: flex;
+            height: 27px;
+            padding-top: 2.773px;
+            font-size: 16px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 5.227px;
+            flex-shrink: 0;
+            align-self: stretch;
+            color: #DC3545 
+        }  
+
+        .mid-card{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .names{
+        border-left: 2px solid #DC3545 ;
+        margin-right: 40px;
+
+         h2{
+            color: var(--textPrimary, #333);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+            margin-left:10px ;
+         }
+         span{
+            color: rgba(51, 51, 51, 0.50);
+            margin-left:10px ;
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+            display: block;
+         }
+        }
+
+        .tarefas{
+            width: 15px;
+            height: 15px;
+        }
+
+        footer{
+            display: flex;
+            gap: 5px;
+            span{
+                color: rgba(51, 51, 51, 0.80);
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-size: 11px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+
+            }
+
+            .gap{
+                margin-left: 10px;
+            }
+        }
+    }
+
+   
+
+   
 }
 
 
