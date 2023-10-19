@@ -16,7 +16,7 @@ export class HeaderContentComponent {
   
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(ModalComponent, {
-      width: '400px',
+      width: '750px',
       enterAnimationDuration,
       exitAnimationDuration,
     });

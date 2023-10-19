@@ -1,4 +1,116 @@
-.modal{
+header {
+  .name {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 93%;
+    padding: 18px 28px 18px 16px;
+    gap: 10px;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    h2 {
+      color: var(--primary, #25294c);
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Poppins;
+      font-size: 22px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    svg {
+      width: 22px;
+      height: 22px;
+      text-align: center;
+    }
+  }
+}
+.modal {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: row;
+  height: 296px;
+  padding: 8px 16px 16px 16px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #e9ecef;
+
+  .content {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border: 1px solid red;
+
+    input {
+      width: 340px;
+      height: 38px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      
+    }
+
+    select {
+      display: flex;
+      width: 330px;
+      height: 38.018px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      -moz-appearance: none;
+      appearance: none;
+      background: white;
+    }
+    textarea {
+      display: flex;
+      width: 698px;
+      height: 79px;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
     
-    height: 50vh;
+
+    .inputs {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .texto {
+      color: var(--color-fill-dark, #343a40);
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Karla;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      display: flex;
+      gap: 4px;
+    }
+    .ast {
+      color: var(--standards-danger, #dc3545);
+      font-feature-settings: "clig" off, "liga" off;
+      font-family: Karla;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+    
+  }
+  footer{
+    width: 200px;
+    height: 200px;
+}
+ 
 }
