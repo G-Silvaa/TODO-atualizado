@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderContentComponent } from './header-content.component';
 import { MatDialogModule } from "@angular/material/dialog"
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormField } from '@angular/material/form-field';
 
 
 
@@ -13,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
   ],exports: [HeaderContentComponent]
 })
 export class HeaderContentModule { }

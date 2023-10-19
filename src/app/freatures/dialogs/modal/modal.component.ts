@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-modal',
@@ -12,4 +14,7 @@ export class ModalComponent {
   closeDialog() {
     this.dialogRef.close();
   }
+
+  selected!: string;
+
 }

@@ -16,10 +16,17 @@
     <input id="nomeDaTarefa" type="text" placeholder="Digite o nome da tarefa">
   </div>
 
-  <div class="inputs">
-    <label for="lista" class="texto">lista <div class="ast">*</div></label>
-    <select name="" id="lista" aria-placeholder="Selecione aqui"></select>
-</div>
+  <mat-form-field>
+    <mat-label>Selecione uma opção</mat-label>
+    <mat-select [(ngModel)]="selected">
+      <mat-option>Nenhum</mat-option>
+      <mat-option value="opcao1">Opção 1</mat-option>
+      <mat-option value="opcao2">Opção 2</mat-option>
+      <mat-option value="opcao3">Opção 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <p>Você selecionou: {{selected}}</p>
 
     <div class="inputs">
     <label for="DataDeConclusão" class="texto">Data De Conclusão <div class="ast">*</div></label>
@@ -27,12 +34,15 @@
   </div>
 
   <div class="inputs">
-    <label for="Descrição" class="texto">Descrição<div class="ast">*</div></label>
-   <textarea name="" id="Descrição" cols="30" rows="10" placeholder="Escreva uma breve descrição sobre a tarefa"></textarea>
-  </div>
+    <label for="lista" class="texto">Hora <div class="ast">*</div></label>
+    <select name="" id="lista" aria-placeholder="Selecione aqui"></select>
+</div>
 
   </div>
-   
+  <footer class="teste">
+     <button (click)="closeDialog()">Fechar</button>
+     <button class="buttonn">Entrar</button>
+    </footer>
   </div>
-  <footer> <button (click)="closeDialog()">Fechar</button></footer>
+ 
 </form>
